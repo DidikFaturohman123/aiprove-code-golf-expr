@@ -1,1 +1,1 @@
-exports.evalExpr=s=>{let t=s.match(/[\d.]+|\S/g),i=0,E=p=>{let c=t[i++],v=c=='('?E(-1):c=='+'?E(1):c=='-'?-E(1):+c,q,r;c=='('&&i++;for(;~(q='+-*/'.indexOf(t[i]))&&q>>1>p;)i++,r=E(q>>1),v=[v+r,v-r,v*r,v/r][q];return v};return E(-1)}
+exports.evalExpr=s=>{let t=s.match(/[\d.]+|\S/g),i=0,E=p=>{let c=t[i++],v=c=='('?E(-2):c=='+'?E(1):c=='-'?-E(1):+c,q,r;for(;~(q='+-*/'.indexOf(t[i]))&&q>1>p;)i++,r=E(q>1),v=[v+r,v-r,v*r,v/r][q];p<-1&&i++;return v};return E(-1)}
